@@ -9,15 +9,8 @@
 </template>
 
 <script>
-//import Vue from 'vue';
-import snoowrap from 'snoowrap';
-const r = new snoowrap({
-  userAgent: 'abhi-app',
-    clientId: 'GfghFfcmKGmnUQDbFxeWRA',
-    clientSecret: 'dkuYfDEqzKY-mgDQjuwYju18ibc7cg',
-    refreshToken: '1140091207469-uK3jSA-mUVl0cTgiiQahB56PMj7T-A'
+import snoo from '@/snoowrapApi.js'
 
-})
 export default {
   name: 'PostTitle',
   data () {
@@ -26,7 +19,7 @@ export default {
     };
   },
   created(){
-    r.getHot().map(post => post.title)
+    snoo.getHot().map(post => post.title)
       .then(titleOfPost=>{
         return this.titles = titleOfPost
       })
