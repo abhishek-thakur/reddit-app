@@ -3,7 +3,7 @@
     <!-- <button type="button" class="btn btn-primary" @click.once="showPosts">Primary</button> -->
     <ol class="list-group list-group-numbered">
       <li v-for="(title, index) in titles" :key="title" class="list-group-item list-group-item-action fs-6">{{title}} 
-        <span class="bg-info"> Sub-Reddit@: {{subreddit[index]}}</span>
+        <span class="bg-info"> Sub-Reddit @{{subreddit[index]}}</span>
         <span class="bg-warning"> Author name:{{authors[index]}}</span>
       </li>
       
