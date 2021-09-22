@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Sub-Reddit @{{subreddit}}</h1> <span><router-link to="/">Go to Home Page</router-link></span>
+    <h1>Sub-Reddit @{{subreddit}}</h1> <span><router-link to="/">Home Page</router-link></span>
     <ol class="list-group list-group-numbered">
       <li v-for="(post, index) in posts" :key="index" class="list-group-item list-group-item-action fs-6">{{post.title}} 
         <!-- <router-link :to="{name: 'subreddit', params: { subredditId:post.subreddit}}"> <span> Sub-Reddit @{{post.subreddit}}</span> </router-link>  -->
