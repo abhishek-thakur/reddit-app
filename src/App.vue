@@ -1,18 +1,13 @@
 <template>
   <div id="app">
-    <PostTitle>  
-    </PostTitle>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import PostTitle from './components/PostTitle.vue'
 
 export default {
-  name: 'App',
-  components: {
-    PostTitle
-  }
+  name: 'App'
 }
 </script>
 
