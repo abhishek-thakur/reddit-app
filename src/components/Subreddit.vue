@@ -6,7 +6,7 @@
 </template>
 
 <script>
-//  import snoo from '@/snoowrapApi.js'
+  import snoo from '@/snoowrapApi.js'
   import PostsComponent from './PostsComponent.vue';
   export default{
   components: { PostsComponent },
@@ -16,6 +16,9 @@
         console.log(this.$route.params.subredditId);
         return this.$route.params.subredditId;
       }
+    },
+    mounted(){
+      snoo.getSubreddit(this.$route.params.subredditId).getNew().then(console.log)
     }
   }
 </script>
