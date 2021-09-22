@@ -6,7 +6,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 const routes = [{
         path: '/',
-        name: 'PostHome',
+        name: 'post-home',
         component: PostHome
     },
     {
