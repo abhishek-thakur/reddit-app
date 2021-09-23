@@ -2,8 +2,9 @@
   <div>
     <h1>Sub-Reddit @{{subreddit}}</h1> 
     <span><router-link to="/">Home Page</router-link></span>
-    <PostsComponent :posts="posts">
-    </PostsComponent>
+    <ol class="list-group list-group-numbered">
+    <postsComponent v-for="(post, index) in posts" :key="index" :post="post" class="list-group-item list-group-item-action fs-6"></postsComponent>
+  </ol>
   </div>
 </template> 
 
