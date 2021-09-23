@@ -1,6 +1,6 @@
 <template>
   <ol class="list-group list-group-numbered">
-    <postsComponent v-for="(post, index) in posts" :key="index" :post="post" class="list-group-item list-group-item-action fs-6"></postsComponent>
+    <postsComponent v-for="(post, index) in posts" :key="index" :post="post"></postsComponent>
   </ol>
 </template>
 
@@ -25,10 +25,4 @@
       }
   }
 </script>
-<style>
-postsComponent{
-  text-align: left !important;
-  padding: 5px !important;
-  margin-left:10px;
-}
-</style>
+
