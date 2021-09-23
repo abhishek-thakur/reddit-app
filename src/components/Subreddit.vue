@@ -1,22 +1,20 @@
 <template>
   <div>
-    <h1>Sub-Reddit @{{subreddit}}</h1> <span><router-link to="/">Home Page</router-link></span>
-    <ol class="list-group list-group-numbered">
-      <li v-for="(post, index) in posts" :key="index" class="list-group-item list-group-item-action fs-6">{{post.title}} 
-        <!-- <router-link :to="{name: 'subreddit', params: { subredditId:post.subreddit}}"> <span> Sub-Reddit @{{post.subreddit}}</span> </router-link>  -->
-        <!-- <span class="bg-info"> Sub-Reddit @{{subreddit[index]}}</span> -->
-        <span class="bg-warning"> Author name:{{post.authors}}</span>
-      </li>
-  </ol>
+    <h1>Sub-Reddit @{{subreddit}}</h1> 
+    <span><router-link to="/">Home Page</router-link></span>
+    <PostsComponent :posts="posts">
+    </PostsComponent>
   </div>
 </template> 
 
 <script>
   import snoo from '@/snoowrapApi.js'
-  //import PostsComponent from './PostsComponent.vue';
+  import PostsComponent from './PostsComponent.vue';
   export default{
- // components: { PostsComponent },
-    name: 'SubredditComponent',
+    name: 'Subreddit',
+    components: { 
+    PostsComponent 
+    },
     data () {
       return {
         posts:[]

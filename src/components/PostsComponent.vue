@@ -6,28 +6,16 @@
         <!-- <span class="bg-info"> Sub-Reddit @{{subreddit[index]}}</span> -->
         <span class="bg-warning"> Author name:{{post.authors}}</span>
       </li>
-  </ol>
+    </ol>
   </div>
 </template>
-
+ 
 <script>
-  import snoo from '@/snoowrapApi.js'
 	export default{
 		name: 'PostsComponent',
-    data () {
-      return {
-        posts:[]
-      };
-    },
-    mounted(){
-      snoo.getHot().map(post => ({"title":post.title, "authors":post.author.name,"subreddit":post.subreddit.display_name}))
-        .then(posts=>{
-          return this.posts = posts
-        });
-    }
+    props:['posts']
 }
 </script>
-
 <style>
 li{
   text-align: left !important;
