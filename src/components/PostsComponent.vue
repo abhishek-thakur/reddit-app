@@ -16,14 +16,3 @@
     props:['posts']
 }
 </script>
-<style>
-li{
-  text-align: left !important;
-  padding: 5px !important;
-  margin-left:10px;
-}
-span{
-  margin-left:20px;
-  font-weight: bold;
-}
-</style>
