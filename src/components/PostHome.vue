@@ -18,7 +18,8 @@
         };
       },
       mounted(){
-        snoo.getHot().map(post => ({"title":post.title, "authors":post.author.name,"subreddit":post.subreddit.display_name}))
+        snoo.getHot().map(post => (console.log(post.permalink),
+          {"title":post.title, "authors":post.author.name,"subreddit":post.subreddit.display_name,"link":post.permalink}))
           .then(posts=>{
             return this.posts = posts
           });
