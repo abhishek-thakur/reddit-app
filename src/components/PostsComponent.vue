@@ -1,6 +1,6 @@
 <template>
 	<li class="list-group-item list-group-item-action fs-6">
-    <a :href="'https://www.reddit.com'+post.link" target="blank" class="fs-6 link-primary"> {{post.title}} </a> 
+    <a :href="post.link" target="blank" class="fs-6 link-primary"> {{post.title}} </a> 
     <!-- {{post.title}} -->
     <router-link :to="{name: 'subreddit', params: { subredditId:post.subreddit}}"> <span> Sub-Reddit @{{post.subreddit}}</span> </router-link> 
     <!-- <span class="bg-info"> Sub-Reddit @{{subreddit[index]}}</span> -->
