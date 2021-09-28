@@ -19,7 +19,9 @@
       },
       mounted(){
         snoo.getHot().map(post => (console.log(post),
-          {"title":post.title, "authors":post.author.name,"subreddit":post.subreddit.display_name,"link":post.url_overridden_by_dest}))
+          {"title":post.title, "authors":post.author.name,
+          "subreddit":post.subreddit.display_name,"link":post.url_overridden_by_dest
+          ,"thumbnail":post.thumbnail,"thumbnail_ht":post.thumbnail_height,"thumbnail_wd":post.thumbnail_width}))
           .then(posts=>{
             return this.posts = posts
           });

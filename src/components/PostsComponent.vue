@@ -1,6 +1,7 @@
 <template>
 	<li class="list-group-item list-group-item-action fs-6">
-    <a :href="post.link" target="blank" class="fs-6 link-primary"> {{post.title}} </a> 
+    <a :href="post.link" target="blank" class="fs-6 link-primary"> {{post.title}}</a> 
+    <img :src="post.thumbnail" :height="post.thumbnail_ht" :width="post.thumbnail_wd"> 
     <!-- {{post.title}} -->
     <router-link :to="{name: 'subreddit', params: { subredditId:post.subreddit}}"> <span> Sub-Reddit @{{post.subreddit}}</span> </router-link> 
     <!-- <span class="bg-info"> Sub-Reddit @{{subreddit[index]}}</span> -->
@@ -28,5 +29,6 @@ a{
 cursor: pointer;
 text-decoration: none !important;
 color: black;
+margin-right: 10px;
 }
 </style>

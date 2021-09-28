@@ -28,7 +28,9 @@
       }
     },
     mounted(){
-      snoo.getSubreddit(this.$route.params.subredditId).getHot().map(post => ({"title":post.title, "authors":post.author.name,"subreddit":post.subreddit.display_name}))
+      snoo.getSubreddit(this.$route.params.subredditId).getHot().map(post => (console.log(post),{"title":post.title,"authors":post.author.name,
+      "subreddit":post.subreddit.display_name,"link":post.url_overridden_by_dest
+      ,"thumbnail":post.thumbnail,"thumbnail_ht":post.thumbnail_height,"thumbnail_wd":post.thumbnail_width}))
         .then(posts=>{
           console.log(posts)
           return this.posts = posts
