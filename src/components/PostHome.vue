@@ -1,7 +1,11 @@
 <template>
-  <ol class="list-group list-group-numbered">
-    <postsComponent v-for="(post, index) in posts" :key="index" :post="post"></postsComponent>
-  </ol>
+  <div class="container-fluid bg-info bg-gradient">
+    <h1>HOME</h1>
+    <ol class="list-group list-group-numbered">
+      <postsComponent v-for="(post, index) in posts" :key="index" :post="post"></postsComponent>
+    </ol>
+  </div>
+  
 </template>
 
 <script> 

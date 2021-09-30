@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container-fluid bg-light bg-gradient">
     <h1>Sub-Reddit @{{subreddit}}</h1> 
     <span><router-link to="/">Home Page</router-link></span>
     <ol class="list-group list-group-numbered">
