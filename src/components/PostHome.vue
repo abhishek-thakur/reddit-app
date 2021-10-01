@@ -24,11 +24,17 @@
     methods:{
       kFormatter(num){
         return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
+      },
+      addUpvote(){
+        snoo.getSubmission(this.id).upvote()
+      },
+      addDownvote(){
+        snoo.getSubmission(this.id).downvote()
       }
     },
     mounted(){
-      snoo.getHot().map(post => (console.log(post),
-        {"title":post.title, "authors":post.author.name,
+      snoo.getHot().map(post => (console.log(post.id),
+        {"title":post.title, "authors":post.author.name,"id":post.id,
         "subreddit":post.subreddit.display_name,"link":post.url_overridden_by_dest,
         "thumbnail":post.thumbnail,"thumbnail_ht":post.thumbnail_height,"thumbnail_wd":post.thumbnail_width,
         "scores":this.kFormatter(post.score)}))
