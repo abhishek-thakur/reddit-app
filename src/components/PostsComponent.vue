@@ -2,9 +2,14 @@
 	<li class="list-group-item list-group-item-action">
     <div class="card mb-3" style="background: aliceblue;">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <b-img thumbnail rounded left :src="post.thumbnail" :height="post.thumbnail_ht" :width="post.thumbnail_wd"
                 onerror="this.src='https://image.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg'"> </b-img>
+            </div>
+            <div class="col-md-1">
+              <div class="card-body" @click.once="showUp()"><b-icon icon="file-arrow-up" font-scale="2" class="updown" title="Up Vote"> </b-icon> </div>
+              <div class="card-body"><p class="card-text">{{post.scores}}</p></div>
+              <div class="card-body" @click.once="showDown()"><b-icon icon="file-arrow-down" font-scale="2" class="updown" title="Down Vote"> </b-icon></div>
             </div>
             <div class="col-md-8">
             <div class="card-body">
@@ -22,7 +27,15 @@
 <script>
 	export default{
 		name: 'PostsComponent',
-    props:['post']
+    props:['post'],
+    methods:{
+      showUp(){
+        alert("up")
+      },
+      showDown(){
+        alert("down")
+      }
+    }
   }
 </script>
 <style>
@@ -45,5 +58,8 @@ img
 {
 width: 150px;
 height: 150px;
+}
+.updown{
+  cursor: pointer;
 }
 </style>
