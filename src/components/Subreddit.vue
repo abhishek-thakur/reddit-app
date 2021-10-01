@@ -1,7 +1,7 @@
 <template>
   <div class="bg-warning bg-gradient">
     <h1>Sub-Reddit @{{subreddit}}</h1> 
-    <span><router-link to="/">Home Page</router-link></span>
+    <span class="fs-4"><router-link to="/">Home Page</router-link></span>
     <ol class="container list-group">
     <postsComponent v-for="(post, index) in posts" :key="index" :post="post" class="list-group-item list-group-item-action fs-6"></postsComponent>
   </ol>
