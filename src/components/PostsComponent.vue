@@ -30,9 +30,11 @@
     props:['post'],
     methods:{
       showUp(post){
+        alert("clicked up");
         this.$parent.$emit('addUpvote',post.id);
       },
       showDown(post){
+        alert("clicked down")
         this.$parent.$emit('addDownvote',post.id);
       }
     }
