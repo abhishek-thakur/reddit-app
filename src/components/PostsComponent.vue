@@ -7,9 +7,9 @@
                 onerror="this.src='https://image.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg'"> </b-img>
             </div>
             <div class="col-md-1">
-              <div class="card-body" @click.once="showUp"><b-icon icon="file-arrow-up" font-scale="2" class="updown" title="Up Vote"> </b-icon> </div>
+              <div class="card-body" @click.once="showUp(post)"><b-icon icon="file-arrow-up" font-scale="2" class="updown" title="Up Vote"> </b-icon> </div>
               <div class="card-body"><p class="card-text">{{post.scores}}</p></div>
-              <div class="card-body" @click.once="showDown"><b-icon icon="file-arrow-down" font-scale="2" class="updown" title="Down Vote"> </b-icon></div>
+              <div class="card-body" @click.once="showDown(post)"><b-icon icon="file-arrow-down" font-scale="2" class="updown" title="Down Vote"> </b-icon></div>
             </div>
             <div class="col-md-8">
             <div class="card-body">
@@ -29,11 +29,11 @@
 		name: 'PostsComponent',
     props:['post'],
     methods:{
-      showUp(){
-        this.$parent.addUpvote();
+      showUp(post){
+        this.$parent.$emit('addUpvote',post.id);
       },
-      showDown(){
-        this.$parent.addDownvote();
+      showDown(post){
+        this.$parent.$emit('addDownvote',post.id);
       }
     }
   }

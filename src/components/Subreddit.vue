@@ -41,6 +41,19 @@
           console.log(posts)
           return this.posts = posts
         });
+        this.$on('addUpvote', (id)=>{
+           snoo.getSubmission(id).upvote().then(res=>{
+             console.log(res);
+           });
+           alert("voted up");
+           //console.log(this.posts);
+        });
+        this.$on('addDownvote', (id)=> {
+          snoo.getSubmission(id).downvote().then(res=>{
+              console.log(res);
+           });
+          alert("voted down");
+        });
     }
   }
 </script>
