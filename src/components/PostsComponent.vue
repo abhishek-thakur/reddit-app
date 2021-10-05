@@ -7,9 +7,9 @@
                 onerror="this.src='https://image.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg'"> </b-img>
             </div>
             <div class="col-md-1">
-              <div class="card-body" @click.once="showUp(post)"><b-icon icon="file-arrow-up" font-scale="2" class="updown" title="Up Vote"> </b-icon> </div>
+              <div class="card-body"><b-icon icon="file-arrow-up" font-scale="2" class="updown" title="Up Vote" :class="{'not-clicked': isLoading, 'is-clickedUp': !isLoading }" @click.once="changeBgUp(); showUp(post);"> </b-icon> </div>
               <div class="card-body"><p class="card-text">{{post.scores}}</p></div>
-              <div class="card-body" @click.once="showDown(post)"><b-icon icon="file-arrow-down" font-scale="2" class="updown" title="Down Vote"> </b-icon></div>
+              <div class="card-body"><b-icon icon="file-arrow-down" font-scale="2" class="updown" title="Down Vote" :class="{'not-clicked': !isClicked, 'is-clickedDown': isClicked }" @click.once="changeBgDown(); showDown(post);"> </b-icon></div>
             </div>
             <div class="col-md-8">
             <div class="card-body">
@@ -27,15 +27,27 @@
 <script>
 	export default{
 		name: 'PostsComponent',
+    data(){
+      return {
+        isLoading : true,
+        isClicked: false
+        };
+    },
     props:['post'],
     methods:{
       showUp(post){
         alert("clicked up");
-        this.$parent.$emit('addUpvote',post.id);
+        this.$emit('addUpvote',post.id);
       },
       showDown(post){
         alert("clicked down")
-        this.$parent.$emit('addDownvote',post.id);
+        this.$emit('addDownvote',post.id);
+      },
+      changeBgUp(){
+        this.isLoading = !this.isLoading
+      },
+      changeBgDown(){
+        this.isClicked = !this.isClicked
       }
     }
   }
@@ -63,5 +75,14 @@ height: 150px;
 }
 .updown{
   cursor: pointer;
+}
+.is-clickedUp{
+  background: orangered;
+}
+.not-clicked{
+  background: #fff;
+}
+.is-clickedDown{
+  background: yellow;
 }
 </style>
