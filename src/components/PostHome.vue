@@ -50,24 +50,8 @@
         .then(posts=>{
           return this.posts = posts
         });
-        // this.$on('addUpvote', (id)=>{
-        //    snoo.getSubmission(id).upvote().then(res=>{
-        //      console.log(res);
-        //    }).catch(error=>{
-        //      console.log(error);
-        //    });
-        //    alert("voted up");
-        //    //console.log(this.posts);
-        // });
-        // this.$on('addDownvote', (id)=> {
-        //   snoo.getSubmission(id).downvote().then(res=>{
-        //       console.log(res);
-        //    }).catch(error=>{
-        //      console.log(error);
-        //    });
-        //   alert("voted down");
-        //    console.log(this.posts);
-        // })
+        //snoo.getSubmission(`post.id`).expandReplies({limit: 10, depth: 10}).then(console.log)
+
     }
   }
 </script>

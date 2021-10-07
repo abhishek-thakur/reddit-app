@@ -2,23 +2,31 @@
 	<li class="list-group-item list-group-item-action">
     <div class="card mb-3" style="background: aliceblue;">
         <div class="row">
-            <div class="col-md-3">
-                <b-img thumbnail rounded left :src="post.thumbnail" :height="post.thumbnail_ht" :width="post.thumbnail_wd"
-                onerror="this.src='https://image.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg'"> </b-img>
-            </div>
-            <div class="col-md-1">
-              <div class="card-body"><b-icon icon="file-arrow-up" font-scale="2" class="updown" title="Up Vote" :class="{'not-clicked': isLoading, 'is-clickedUp': !isLoading }" @click.once="changeBgUp(); showUp(post);"> </b-icon> </div>
-              <div class="card-body"><p class="card-text">{{post.scores}}</p></div>
-              <div class="card-body"><b-icon icon="file-arrow-down" font-scale="2" class="updown" title="Down Vote" :class="{'not-clicked': !isClicked, 'is-clickedDown': isClicked }" @click.once="changeBgDown(); showDown(post);"> </b-icon></div>
-            </div>
-            <div class="col-md-8">
-            <div class="card-body">
-                <p class="card-text"><a :href="post.link" target="blank" class="fs-5 link-primary"> {{post.title}}</a></p>
-                <p class="card-text"><small><router-link :to="{name: 'subreddit', params: { subredditId:post.subreddit}}"> <span class="subredt fs-6"> Sub-Reddit @{{post.subreddit}}</span> </router-link> 
-                    <!-- <span class="bg-info"> Sub-Reddit @{{subreddit[index]}}</span> -->
-                    <span class="authors fs-6"> Author name:{{post.authors}}</span></small></p>
-            </div>
-            </div>
+          <!-- Thumbnails -->
+          <div class="col-md-3">
+              <b-img thumbnail rounded left :src="post.thumbnail" :height="post.thumbnail_ht" :width="post.thumbnail_wd"
+              onerror="this.src='https://image.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg'"> </b-img>
+          </div>
+          <!-- Upvote and Downvote -->
+          <div class="col-md-1">
+            <div class="card-body"><b-icon icon="file-arrow-up" font-scale="2" class="updown" title="Up Vote" :class="{'not-clicked': isLoading, 'is-clickedUp': !isLoading }" @click.once="changeBgUp(); showUp(post);"> </b-icon> </div>
+            <div class="card-body"><p class="card-text">{{post.scores}}</p></div>
+            <div class="card-body"><b-icon icon="file-arrow-down" font-scale="2" class="updown" title="Down Vote" :class="{'not-clicked': !isClicked, 'is-clickedDown': isClicked }" @click.once="changeBgDown(); showDown(post);"> </b-icon></div>
+          </div>
+          <!-- Title, subreddit name and authorname -->
+          <div class="col-md-8">
+          <div class="card-body">
+              <p class="card-text"><a :href="post.link" target="blank" class="fs-5 link-primary"> {{post.title}}</a></p>
+              <p class="card-text">
+                <small>
+                  <router-link :to="{name: 'subreddit', params: { subredditId:post.subreddit}}"> <span class="subredt fs-6"> Sub-Reddit @{{post.subreddit}}</span> </router-link> 
+                  <!-- <span class="bg-info"> Sub-Reddit @{{subreddit[index]}}</span> -->
+                  <span class="authors fs-6"> Author name:{{post.authors}}</span>
+                  <div><router-link :to="{name: 'comments', params: { cmntId:post.id}}">Comments</router-link></div>
+                </small>
+              </p>
+          </div>
+          </div>
         </div>
     </div>
   </li>
