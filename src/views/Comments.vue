@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" style="background: pink;">
         <h1>Comments</h1>
         <span class="fs-4"><router-link to="/">Home Page</router-link></span>
         <div class="card mb-3" style="background: aliceblue;">
@@ -30,7 +30,17 @@
           </div>
           <div>
             <ol>
-              <li v-for="(comment, index) in comments" :key="index">{{comment}}</li>
+              <h4>Comments</h4>
+              <li v-for="(comment, index) in comments" :key="index">
+                <div class="row">
+                  <div class="col-md-1">
+                    <div class="card-body"><b-icon icon="file-arrow-up" font-scale="2"> </b-icon> </div>
+                    <div class="card-body"><p class="card-text">211</p></div>
+                    <div class="card-body"><b-icon icon="file-arrow-down" font-scale="2"> </b-icon></div>
+                  </div>
+                  <div class="col-md-10">{{comment}}</div>
+                </div>
+              </li>
             </ol>
           </div>
         </div>
@@ -66,10 +76,18 @@ export default {
         });
     snoo.getSubmission(this.$route.params.cmntId).expandReplies({limit: 0, depth: 0}).then(c => {
       c.comments.forEach(x => {
-        console.log(x.body)
+        console.log(x.id)
         this.comments.push(x.body)
       })
     })
    }
 }
 </script>
+<style scoped>
+li{
+  list-style: none;
+  border: 2px dotted;
+  padding: 5px;
+  margin: 5px auto;
+}
+</style>

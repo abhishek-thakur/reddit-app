@@ -9,7 +9,7 @@
 </template>
 
 <script> 
-  import PostsComponent from './PostsComponent.vue';
+  import PostsComponent from '../components/PostsComponent.vue';
   import snoo from '@/snoowrapApi.js'
   export default {
     name: 'PostHome',

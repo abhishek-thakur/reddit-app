@@ -10,11 +10,11 @@
 
 <script>
   import snoo from '@/snoowrapApi.js'
-  import PostsComponent from './PostsComponent.vue';
+  import PostsComponent from '../components/PostsComponent.vue';
   export default{
     name: 'Subreddit',
     components: { 
-    PostsComponent 
+      PostsComponent 
     },
     data () {
       return {
@@ -57,24 +57,6 @@
           console.log(posts)
           return this.posts = posts
         });
-        // this.$on('addUpvote', (id)=>{
-        //    snoo.getSubmission(id).upvote().then(res=>{
-        //      console.log(res);
-        //    }).catch(error=>{
-        //      console.log(error);
-        //    });
-        //    alert("voted up");
-        //    //console.log(this.posts);
-        // });
-        // this.$on('addDownvote', (id)=> {
-        //   snoo.getSubmission(id).downvote().then(res=>{
-        //       console.log(res);
-        //    }).catch(error=>{
-        //      console.log(error);
-        //    });
-        //   alert("voted down");
-        //    console.log(this.posts);
-        // })
     }
   }
 </script>

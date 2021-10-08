@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import PostHome from './components/PostHome'
-import Subreddit from './components/Subreddit'
-import Comments from './components/Comments'
+import PostHome from './views/PostHome'
+import Subreddit from './views/Subreddit'
+import Comments from './views/Comments'
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
