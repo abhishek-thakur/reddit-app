@@ -28,6 +28,11 @@
               </p>
           </div>
           </div>
+          <div>
+            <ol>
+              <li v-for="(comment, index) in comments" :key="index">{{comment}}</li>
+            </ol>
+          </div>
         </div>
     </div>
     </div>
@@ -40,7 +45,8 @@ export default {
     name: 'Comments',
     data(){
         return {
-            post:{}
+            post:{},
+            comments:[]
         };
     },
     methods:{
@@ -49,8 +55,8 @@ export default {
       }
     },
    mounted(){
-    //snoo.getHot(this.$route.params.cmntId).map(post =>console.log(post))
-    snoo.getContentByIds([snoo.getSubmission(this.$route.params.cmntId)]).map(post => (console.log(post),{"title":post.title,"authors":post.author.name,
+    snoo.getContentByIds([snoo.getSubmission(this.$route.params.cmntId)]).map(post => (console.log(post),
+    {"title":post.title,"authors":post.author.name,
       "subreddit":post.subreddit.display_name,"link":post.url_overridden_by_dest,
       "thumbnail":post.thumbnail,"thumbnail_ht":post.thumbnail_height,"thumbnail_wd":post.thumbnail_width,
       "scores":this.kFormatter(post.score)}))
@@ -58,6 +64,12 @@ export default {
           console.log(post)
           return this.post = post[0]
         });
+    snoo.getSubmission(this.$route.params.cmntId).expandReplies({limit: 0, depth: 0}).then(c => {
+      c.comments.forEach(x => {
+        console.log(x.body)
+        this.comments.push(x.body)
+      })
+    })
    }
 }
 </script>

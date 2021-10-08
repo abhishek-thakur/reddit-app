@@ -50,7 +50,6 @@
         .then(posts=>{
           return this.posts = posts
         });
-        //snoo.getSubmission(`post.id`).expandReplies({limit: 10, depth: 10}).then(console.log)
 
     }
   }
